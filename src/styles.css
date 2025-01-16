@@ -93,8 +93,9 @@ table {
 .projects{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: 1fr 1fr auto;
   gap: 1rem;
+  padding: 1rem;
 
 }
 
@@ -116,7 +117,7 @@ table {
   color: black;
   text-align: center;
   justify-content: center;
-  align-self: center;
+  align-self: stretch;
 }
 
 .project-card:hover{
