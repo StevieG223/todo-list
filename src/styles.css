@@ -1,0 +1,161 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.title-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.spotlight-img{
+  width: 7%;
+  height: 7%;
+}
+
+.title, .projects-section-title{
+    font-family: "Lexend", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-size: 5rem;
+    font-style: normal;
+    color: #F5EDCE;
+    text-align: center;
+}
+
+.projects-section-title{
+  font-weight: 500;
+  font-size: 2rem;
+  text-align: left;
+  padding: 1rem 0 2rem 1rem;
+}
+
+.subtitle, .project-card{
+  font-family: "Roboto", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: large;
+  font-variation-settings: "wdth" 100;
+  color: #F5EDCE;
+  text-align: center;
+  }
+
+.content{
+  background-color: #4F1787;
+}
+
+.projects{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+
+}
+
+.project-card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-top: 10px solid #FFEB00;
+  box-shadow: 2px 2px 6px 0px  #9f80ec(0,0,0,0.3);
+  background-color: #F5EDCE;
+  border-radius: 15px;
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-size: large;
+  font-weight: 300;
+  font-variation-settings: "wdth" 100;
+  color: black;
+  text-align: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.project-card:hover{
+  transition-delay: 0.7s;
+  transform: scale(1.1);
+  border-top: 5px solid #9f80ec;
+  background-color: #f4f2eb;
+}
+
+.project-card p {
+  padding: 0 1rem 1rem;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.buttons > button {
+  background: #4F1787;
+  border: 0;
+  color: #F5EDCE;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  width: 5rem;
+  }
+
+.buttons > button:hover, .buttons > button:active{
+  background-color: #9f80ec;
+  color: #4F1787;
+}
+
+.project-card > .project-name{
+  font-size: larger;
+  color: #4F1787;
+  font-weight: 700;
+  padding: 1rem;
+}
