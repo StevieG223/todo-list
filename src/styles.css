@@ -160,3 +160,7 @@ table {
   font-weight: 700;
   padding: 1rem;
 }
+
+.expanded-card{
+  grid-row: span 2;
+}
