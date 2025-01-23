@@ -1,5 +1,6 @@
 import "./styles.css";
 import {Project, myProjects} from "./project-module.js"
+import {AssignDeleteProjectsButton, getClass, expandDescription, openNewProjectForm} from "./app-logic.js"
 
 function populateProjects(arr){
     const projectsSection = document.querySelector(".projects");
@@ -14,29 +15,16 @@ function populateProjects(arr){
                     </div>`;
         projectsSection.appendChild(projectEntry);
     });
-    const detailsButtons = Array.from(document.getElementsByClassName("details"));
-    detailsButtons.forEach(button =>{
-        button.addEventListener("click", (eventObj)=> {
-            let expandedProject = eventObj.target.parentElement.parentElement;
-            let projectName = expandedProject.firstChild.innerHTML;
-            console.log(projectName)
-            expandedProject.classList.add("expanded-card");
-            expandedProject.replaceChildren();
-            let projectIndexPos = arr.findIndex(proj=> proj.title == projectName);
-            let project = arr[projectIndexPos];
-            expandedProject.innerHTML = ` <h3 class="project-name">${project.title}</h3>
-            <p>Due Date: ${project.dueDate}</p>
-            <p>${project.priority}</p>
-            <p>Description: ${project.description}</p>
-            <p>Additional Notes: ${project.notes}</p>
-            <div class="buttons">
-                <button class='complete'>Complete</button>
-                <button class='edit'>Edit</button>
-                <button class='delete'>Delete</button>
-            </div>`;
-        });           
-});
-}
+    const detailsButtons = getClass("details");
+    expandDescription(detailsButtons, arr);
 
+    const clearAllButton = getClass("clear-all");
+    const projectsDisplay = getClass("projects");
+    AssignDeleteProjectsButton(clearAllButton[0], projectsDisplay[0]);
+
+    const newProjectButton = getClass("new-project");
+    newProjectButton[0].addEventListener("click", openNewProjectForm);
+
+};
 let projectArray = myProjects.getProjects();
 populateProjects(projectArray);

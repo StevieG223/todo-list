@@ -69,7 +69,7 @@ table {
     text-align: center;
 }
 
-.projects-section-title{
+.projects-section-title, .form-title{
   font-weight: 500;
   font-size: 2rem;
   text-align: left;
@@ -93,7 +93,7 @@ table {
 .projects{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr auto;
+  grid-template-rows: 1fr 1fr 1fr auto;
   gap: 1rem;
   padding: 1rem;
 
@@ -139,7 +139,7 @@ table {
   justify-content: center;
 }
 
-.buttons > button {
+.buttons > button, .btn-submit, .btn-close{
   background: #4F1787;
   border: 0;
   color: #F5EDCE;
@@ -149,7 +149,8 @@ table {
   width: 5rem;
   }
 
-.buttons > button:hover, .buttons > button:active{
+.buttons > button:hover, .buttons > button:active,
+.btn-submit:hover, .btn-close:hover{
   background-color: #9f80ec;
   color: #4F1787;
 }
@@ -164,3 +165,49 @@ table {
 .expanded-card{
   grid-row: span 2;
 }
+
+.project-buttons > button{
+  background-color: #9f80ec;
+}
+
+.form-container{
+  background-color: #F5EDCE;
+  grid-column: 2 /span 3;
+  grid-row: 0 / span 2;
+  border-radius: 15px;
+  border: solid #9f80ec 4px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form > label{
+  color: #4F1787;
+}
+
+input, select, textarea {
+  border: 2px solid #4F1787;
+  border-radius: 4px;
+  width: 50%;
+  height: 2rem;
+  padding: 2px;
+  resize: none;
+}
+
+select{
+  width: 20%;
+}
+
+input[type=text]:focus, textarea:focus{
+  background-color: #9f80ec;
+  color: white;
+}
+
+
