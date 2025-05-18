@@ -1,8 +1,7 @@
 export {
-  AssignDeleteProjectsButton,
   getClass,
-  expandDescription,
   openNewProjectForm,
+  populateProjects
 };
 
 function AssignDeleteProjectsButton(button, div) {
@@ -13,6 +12,27 @@ function AssignDeleteProjectsButton(button, div) {
 
 function getClass(className) {
   return Array.from(document.getElementsByClassName(className));
+}
+
+function populateProjects(arr) {
+  const projectsSection = document.querySelector(".projects");
+  projectsSection.replaceChildren();
+  arr.forEach((project) => {
+    let projectEntry = document.createElement("div");
+    projectEntry.classList.add("project-card");
+    projectEntry.innerHTML = `<h3 class="project-name">${project.title}</h3>
+                    <p>${project.priority}</p>
+                    <div class="buttons">
+                        <button class='details'>Details</button>
+                    </div>`;
+    projectsSection.appendChild(projectEntry);
+  });
+  const detailsButtons = getClass("details");
+  expandDescription(detailsButtons, arr);
+
+  const clearAllButton = getClass("clear-all");
+  const projectsDisplay = getClass("projects");
+  AssignDeleteProjectsButton(clearAllButton[0], projectsDisplay[0]);
 }
 
 function expandDescription(buttonsArray, objArray) {
@@ -33,10 +53,20 @@ function expandDescription(buttonsArray, objArray) {
             <p>Additional Notes: ${project.notes}</p>
             <div class="buttons">
                 <button class='complete'>Complete</button>
-                <button class='edit'>Edit</button>
                 <button class='delete'>Delete</button>
             </div>`;
+      let deleteProjectBtn = expandedProject.getElementsByClassName("delete")[0];
+      deleteProjectBtn.addEventListener("click", ()=>{
+        let projectToDelete = expandedProject.firstChild.innerHTML;
+        let projectToDeleteIndexPos = objArray.findIndex(
+          (proj) => proj.title == projectToDelete,
+        );
+        if (projectToDeleteIndexPos > -1) { 
+          objArray.splice(projectToDeleteIndexPos, 1);
+        }
+        populateProjects(objArray)
     });
+  });
   });
 }
 
